@@ -1,5 +1,8 @@
-# Cook Book to do list
+# Cook Book
+## About
+Making a cook book android application for my 387COM module.
 
+## To Do List
 1. New intent for each recipe to show instructions
 2. Timer features to alert smart watch/phone
 3. Shopping list, add recipes to a list for the week and it creates a shopping list based on the ingredients for everything

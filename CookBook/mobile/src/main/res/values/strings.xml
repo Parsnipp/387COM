@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Cook Book</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="recipe_name">
+        <item>Chilli</item>
+        <item>Curry</item>
+        <item>Bolognese</item>
+    </string-array>
+    <string-array name="recipe_ingredients">
+        <item>Mince, Tomato, Powder, Rice</item>
+        <item>Chicken, Tomato, Paste, Rice</item>
+        <item>Mince, Tomato, Basil, Spaghetti</item>
+    </string-array>
+    <string-array name="recipe_directions">
+        <item>Cook mince, add tomato and powder, simmer while boiling rice.</item>
+        <item>Cook chicken, add tomato and paste, simmer while boiling rice.</item>
+        <item>Cook mince, add tomato and basil, simmer while boiling spaghetti.</item>
+    </string-array>
+</resources>

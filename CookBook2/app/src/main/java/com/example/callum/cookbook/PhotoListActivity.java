@@ -1,5 +1,6 @@
 package com.example.callum.cookbook;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -38,19 +39,25 @@ public class PhotoListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(
 
                 new AdapterView.OnItemClickListener() {
-
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                        Toast.makeText(getBaseContext(), recipes.get(position).toString(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(PhotoListActivity.this, Instructions.class);
+                        String rname = recipes.get(position).getName();
+                        String ringredients = recipes.get(position).getIngredients();
+                        String rdirections = recipes.get(position).getDirections();
+                        int pos = position;
+                        intent.putExtra("name", rname);
+                        intent.putExtra("ingredients", ringredients);
+                        intent.putExtra("directions", rdirections);
+                        intent.putExtra("position", pos);
+                        intent.putExtra("pictures", recipePhotos);
+                        startActivity(intent);
                     }
                 }
         );
     }
 
     private void generateRecipes() {
-
-        // replace \ with angle brackets
         for (int i = 0; i < recipePhotos.length; i++) {
             recipes.add(new Recipes(recipeNames[i], recipeIngredients[i], recipeDirections[i], recipePhotos[i]));
         }

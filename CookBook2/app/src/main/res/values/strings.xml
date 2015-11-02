@@ -4,6 +4,13 @@
     <string name="photolist">PhotoList</string>
     <string name="name">name</string>
     <string name="ingredients">ingredients</string>
+    <string-array name="mainz">
+        <item>Recipe Database</item>
+        <item>Saved Recipes</item>
+        <item>Meal Plan</item>
+        <item>Shopping List</item>
+        <item>Settings</item>
+    </string-array>
     <string-array name="recipe_name">
         <item>Chilli</item>
         <item>Curry</item>
@@ -19,4 +26,5 @@
         <item>Cook chicken, add tomato and paste, simmer while boiling rice.</item>
         <item>Cook mince, add tomato and basil, simmer while boiling spaghetti.</item>
     </string-array>
+    <string name="title_activity_instructions">Instructions</string>
 </resources>

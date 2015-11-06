@@ -32,8 +32,8 @@ public class Recipes {
         return photo;
     }
 
-    @Override
-    public String toString() {
-        return directions;
-    }
+//    @Override
+//    public String toString() {
+//        return directions;
+//    }
 }

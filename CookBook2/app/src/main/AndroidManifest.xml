@@ -18,12 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PhotoListActivity" >
+        <activity android:name=".PhotoListActivity"
+            android:label="Recipes"
+            android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".Instructions"
             android:label="@string/title_activity_instructions"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:parentActivityName=".PhotoListActivity">
         </activity>
     </application>
 

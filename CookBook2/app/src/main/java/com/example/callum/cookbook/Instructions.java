@@ -1,6 +1,7 @@
 package com.example.callum.cookbook;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,18 +19,19 @@ public class Instructions extends AppCompatActivity {
         setContentView(R.layout.activity_instructions);
 
         Intent myIntent = getIntent();
-        String rname = myIntent.getStringExtra("name");
-        String ringredients = myIntent.getStringExtra("ingredients");
-        String rdirections = myIntent.getStringExtra("directions");
-        int pos = myIntent.getIntExtra("position", 0);
-        int[] photos = myIntent.getIntArrayExtra("pictures");
+        final String rid = myIntent.getStringExtra("id");
+        final String rname = myIntent.getStringExtra("name");
+        final String ringredients = myIntent.getStringExtra("ingredients");
+        final String rdirections = myIntent.getStringExtra("directions");
+//        int pos = myIntent.getIntExtra("position", 0);
+        final int photos = myIntent.getIntExtra("pictures", 0);
 
         ImageView image = (ImageView) findViewById(R.id.imageView);
         TextView name = (TextView) findViewById(R.id.nameTextView);
         TextView ingredients = (TextView) findViewById(R.id.ingredientsTextView);
         TextView directions = (TextView) findViewById(R.id.directionsTextView);
 
-        image.setImageResource(photos[pos]);
+        image.setImageResource(photos);
         name.setText(rname);
         ingredients.setText(ringredients);
         directions.setText(rdirections);
@@ -39,8 +41,8 @@ public class Instructions extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                DatabaseHandler db = new DatabaseHandler(Instructions.this);
+                db.addRecipe(new Recipes(rid, rname, ringredients, rdirections, photos));
             }
         });
     }

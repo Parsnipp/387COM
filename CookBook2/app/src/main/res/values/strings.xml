@@ -11,6 +11,11 @@
         <item>Shopping List</item>
         <item>Settings</item>
     </string-array>
+    <string-array name="recipe_id">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
     <string-array name="recipe_name">
         <item>Chilli</item>
         <item>Curry</item>

@@ -16,6 +16,7 @@ public class PhotoListActivity extends AppCompatActivity {
             R.drawable.curry,
             R.drawable.bolognese,
     };
+    private String[] recipeID;
     private String[] recipeNames;
     private String[] recipeIngredients;
     private String[] recipeDirections;
@@ -28,6 +29,7 @@ public class PhotoListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_list);
 
+        recipeID = getResources().getStringArray(R.array.recipe_id);
         recipeNames = getResources().getStringArray(R.array.recipe_name);
         recipeIngredients = getResources().getStringArray(R.array.recipe_ingredients);
         recipeDirections = getResources().getStringArray(R.array.recipe_directions);
@@ -41,15 +43,18 @@ public class PhotoListActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(PhotoListActivity.this, Instructions.class);
+                        String rid = recipes.get(position).getID();
                         String rname = recipes.get(position).getName();
                         String ringredients = recipes.get(position).getIngredients();
                         String rdirections = recipes.get(position).getDirections();
-                        int pos = position;
+                        int rphoto =recipes.get(position).getPhoto();
+//                        int pos = position;
+                        intent.putExtra("id", rid);
                         intent.putExtra("name", rname);
                         intent.putExtra("ingredients", ringredients);
                         intent.putExtra("directions", rdirections);
-                        intent.putExtra("position", pos);
-                        intent.putExtra("pictures", recipePhotos);
+//                        intent.putExtra("position", pos);
+                        intent.putExtra("pictures", rphoto);
                         startActivity(intent);
                     }
                 }
@@ -58,7 +63,7 @@ public class PhotoListActivity extends AppCompatActivity {
 
     private void generateRecipes() {
         for (int i = 0; i < recipePhotos.length; i++) {
-            recipes.add(new Recipes(recipeNames[i], recipeIngredients[i], recipeDirections[i], recipePhotos[i]));
+            recipes.add(new Recipes(recipeID[i], recipeNames[i], recipeIngredients[i], recipeDirections[i], recipePhotos[i]));
         }
     }
 }

@@ -36,4 +36,18 @@
     <string name="title_activity_saved">Saved Recipes</string>
     <string name="title_activity_saved_instructions">SavedInstructions</string>
     <string name="title_activity_meal_plan">MealPlanActivity</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="add_breakfast">+ Add Breakfast</string>
+    <string name="add_lunch">+ Add Lunch</string>
+    <string name="add_dinner">+ Add Dinner</string>
+    <string name="title_activity_meal_picker">MealPickerActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

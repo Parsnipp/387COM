@@ -43,6 +43,11 @@
             android:label="@string/title_activity_meal_plan"
             android:parentActivityName=".MainActivity" >
         </activity>
+        <activity
+            android:name=".MealPickerActivity"
+            android:label="@string/title_activity_meal_picker"
+            android:parentActivityName=".MealPlanActivity" >
+        </activity>
     </application>
 
 </manifest>

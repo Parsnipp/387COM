@@ -10,4 +10,234 @@
     tools:showIn="@layout/activity_meal_plan"
     tools:context="com.example.callum.cookbook.MealPlanActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView" >
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/monday"
+                android:id="@+id/textView2" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_breakfast"
+                android:id="@+id/monday_breakfast"
+                android:background="#fafafa"
+                android:textAlignment="textStart"
+                android:singleLine="true" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_lunch"
+                android:id="@+id/monday_lunch"
+                android:background="#fafafa"
+                android:textAlignment="textStart" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_dinner"
+                android:id="@+id/monday_dinner"
+                android:background="#fafafa"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/tuesday"
+                android:id="@+id/textView3" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_breakfast"
+                android:id="@+id/tuesday_breakfast"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_lunch"
+                android:id="@+id/tuesday_lunch"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_dinner"
+                android:id="@+id/tuesday_dinner"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/wednesday"
+                android:id="@+id/textView4" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_breakfast"
+                android:id="@+id/wednesday_breakfast"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_lunch"
+                android:id="@+id/wednesday_lunch"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_dinner"
+                android:id="@+id/wednesday_dinner"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/thursday"
+                android:id="@+id/textView5" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_breakfast"
+                android:id="@+id/thursday_breakfast"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_lunch"
+                android:id="@+id/thursday_lunch"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_dinner"
+                android:id="@+id/thursday_dinner"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/friday"
+                android:id="@+id/textView6" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_breakfast"
+                android:id="@+id/friday_breakfast"
+                android:background="#fafafa"
+                android:textAlignment="textStart" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_lunch"
+                android:id="@+id/friday_lunch"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_dinner"
+                android:id="@+id/friday_dinner"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/saturday"
+                android:id="@+id/textView7" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_breakfast"
+                android:id="@+id/saturday_breakfast"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_lunch"
+                android:id="@+id/saturday_lunch"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_dinner"
+                android:id="@+id/saturday_dinner"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/sunday"
+                android:id="@+id/textView8" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_breakfast"
+                android:id="@+id/sunday_breakfast"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_lunch"
+                android:id="@+id/sunday_lunch"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_dinner"
+                android:id="@+id/sunday_dinner"
+                android:background="#fafafa"
+                android:textAlignment="textStart"/>
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

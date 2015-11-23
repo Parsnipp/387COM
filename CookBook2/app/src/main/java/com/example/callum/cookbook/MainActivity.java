@@ -35,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
                         if (position == 0) {
                             Intent intent = new Intent(MainActivity.this, PhotoListActivity.class);
                             startActivity(intent);
+                        } else if (position == 1) {
+                            Intent intent = new Intent(MainActivity.this, SavedRecipeActivity.class);
+                            startActivity(intent);
+                        } else if (position == 2) {
+                            Intent intent = new Intent(MainActivity.this, MealPlanActivity.class);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(getBaseContext(), mainz[position] + ", not implemented...", Toast.LENGTH_SHORT).show();
                         }

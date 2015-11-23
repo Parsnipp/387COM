@@ -32,4 +32,8 @@
         <item>Cook mince, add tomato and basil, simmer while boiling spaghetti.</item>
     </string-array>
     <string name="title_activity_instructions">Instructions</string>
+    <string name="title_activity_recipes">Recipes</string>
+    <string name="title_activity_saved">Saved Recipes</string>
+    <string name="title_activity_saved_instructions">SavedInstructions</string>
+    <string name="title_activity_meal_plan">MealPlanActivity</string>
 </resources>

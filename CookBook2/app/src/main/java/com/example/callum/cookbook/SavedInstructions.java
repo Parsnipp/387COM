@@ -1,7 +1,6 @@
 package com.example.callum.cookbook;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,12 +10,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Instructions extends AppCompatActivity {
+public class SavedInstructions extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_instructions);
+        setContentView(R.layout.activity_saved_instructions);
 
         Intent myIntent = getIntent();
         final String rid = myIntent.getStringExtra("id");
@@ -40,8 +39,10 @@ public class Instructions extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseHandler db = new DatabaseHandler(Instructions.this);
-                db.addRecipe(new Recipes(rid, rname, ringredients, rdirections, photos));
+                DatabaseHandler db = new DatabaseHandler(SavedInstructions.this);
+                db.deleteRecipe(rid);
+                Intent intent = new Intent(SavedInstructions.this, SavedRecipeActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -18,14 +18,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PhotoListActivity"
-            android:label="Recipes"
-            android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".PhotoListActivity"
+            android:label="@string/title_activity_recipes"
+            android:parentActivityName=".MainActivity" >
         </activity>
         <activity
             android:name=".Instructions"
             android:label="@string/title_activity_instructions"
-            android:parentActivityName=".PhotoListActivity">
+            android:parentActivityName=".PhotoListActivity" >
+        </activity>
+        <activity
+            android:name=".SavedRecipeActivity"
+            android:label="@string/title_activity_saved"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity
+            android:name=".SavedInstructions"
+            android:label="@string/title_activity_saved_instructions"
+            android:parentActivityName=".SavedRecipeActivity" >
+        </activity>
+        <activity
+            android:name=".MealPlanActivity"
+            android:label="@string/title_activity_meal_plan"
+            android:parentActivityName=".MainActivity" >
         </activity>
     </application>
 

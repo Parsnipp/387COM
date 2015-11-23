@@ -9,31 +9,17 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class PhotoListActivity extends AppCompatActivity {
-
-    public static int[] recipePhotos = {
-            R.drawable.chilli,
-            R.drawable.curry,
-            R.drawable.bolognese,
-    };
-    private String[] recipeID;
-    private String[] recipeNames;
-    private String[] recipeIngredients;
-    private String[] recipeDirections;
-    private ArrayList<Recipes> recipes = new ArrayList<>();
+public class SavedRecipeActivity extends AppCompatActivity {
 
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo_list);
+        setContentView(R.layout.activity_saved_recipe);
 
-        recipeID = getResources().getStringArray(R.array.recipe_id);
-        recipeNames = getResources().getStringArray(R.array.recipe_name);
-        recipeIngredients = getResources().getStringArray(R.array.recipe_ingredients);
-        recipeDirections = getResources().getStringArray(R.array.recipe_directions);
-        generateRecipes();
+        DatabaseHandler db = new DatabaseHandler(this);
+        final ArrayList<Recipes> recipes = db.showSaved();
 
         listView = (ListView) findViewById(R.id.listView2);
         listView.setAdapter(new RecipesAdapter(this, R.layout.list_item, recipes));
@@ -42,12 +28,12 @@ public class PhotoListActivity extends AppCompatActivity {
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent intent = new Intent(PhotoListActivity.this, Instructions.class);
+                        Intent intent = new Intent(SavedRecipeActivity.this, SavedInstructions.class);
                         String rid = recipes.get(position).getID();
                         String rname = recipes.get(position).getName();
                         String ringredients = recipes.get(position).getIngredients();
                         String rdirections = recipes.get(position).getDirections();
-                        int rphoto =recipes.get(position).getPhoto();
+                        int rphoto = recipes.get(position).getPhoto();
                         intent.putExtra("id", rid);
                         intent.putExtra("name", rname);
                         intent.putExtra("ingredients", ringredients);
@@ -57,11 +43,5 @@ public class PhotoListActivity extends AppCompatActivity {
                     }
                 }
         );
-    }
-
-    private void generateRecipes() {
-        for (int i = 0; i < recipePhotos.length; i++) {
-            recipes.add(new Recipes(recipeID[i], recipeNames[i], recipeIngredients[i], recipeDirections[i], recipePhotos[i]));
-        }
     }
 }

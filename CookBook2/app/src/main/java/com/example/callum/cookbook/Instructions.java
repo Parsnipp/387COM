@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Instructions extends AppCompatActivity {
 
@@ -42,6 +43,9 @@ public class Instructions extends AppCompatActivity {
             public void onClick(View view) {
                 DatabaseHandler db = new DatabaseHandler(Instructions.this);
                 db.addRecipe(new Recipes(rid, rname, ringredients, rdirections, photos));
+                Toast.makeText(getApplicationContext(), rname + " saved.", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Instructions.this, PhotoListActivity.class);
+                startActivity(intent);
             }
         });
     }

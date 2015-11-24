@@ -18,6 +18,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("drop table if exists recipeTable ");
         db.execSQL("CREATE TABLE IF NOT EXISTS recipeTable (ID PRIMARY KEY, Name, Ingredients, Directions, Photo)");
+        db.execSQL("drop table if exists planTable ");
+        db.execSQL("CREATE TABLE IF NOT EXISTS planTable (ID, Name, Ingredients, Directions, Photo, Day, Meal)");
         Log.d("dbhelper", "table created");
     }
 
@@ -47,6 +49,36 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void  planRecipe(Recipes recipe, String day, String meal){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        long deleter = db.delete("planTable", "Day = '" + day + "' AND Meal = '" + meal + "'", null);
+        if (deleter > 0){
+            Log.d("dbhelper", "planned deleted");
+        } else {
+            Log.d("dbhelper", "plan not deleted");
+        }
+
+        ContentValues values = new ContentValues();
+        values.put("ID", recipe.getID());
+        values.put("Name", recipe.getName());
+        values.put("Ingredients", recipe.getIngredients());
+        values.put("Directions", recipe.getDirections());
+        values.put("Photo", recipe.getPhoto());
+        values.put("Day", day);
+        values.put("Meal", meal);
+
+        long result = db.insert("planTable", null, values);
+
+        if (result > 0){
+            Log.d("dbhelper", "planned successfully");
+        } else {
+            Log.d("dbhelper", "failed to plan");
+        }
+
+        db.close();
+    }
+
     public void deleteRecipe(String id){
         SQLiteDatabase db = getWritableDatabase();
 
@@ -62,6 +94,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         Log.d("dbhelper", String.valueOf(aa));
 
+        recipes.close();
         db.close();
     }
 
@@ -73,6 +106,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         recipes.moveToFirst();
         while (!recipes.isAfterLast()){
             returnable.add(new Recipes(recipes.getString(0), recipes.getString(1), recipes.getString(2), recipes.getString(3), recipes.getInt(4)));
+            recipes.moveToNext();
+        }
+        return returnable;
+    }
+
+    public ArrayList<SavedRecipes> showPlan(){
+        ArrayList<SavedRecipes> returnable = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selection = "SELECT * FROM planTable";
+        Cursor recipes = db.rawQuery(selection, null);
+        recipes.moveToFirst();
+        while (!recipes.isAfterLast()){
+            returnable.add(new SavedRecipes(recipes.getString(0), recipes.getString(1), recipes.getString(2), recipes.getString(3), recipes.getInt(4), recipes.getString(5), recipes.getString(6)));
             recipes.moveToNext();
         }
         return returnable;

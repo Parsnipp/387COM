@@ -35,17 +35,17 @@
         </activity>
         <activity
             android:name=".SavedInstructions"
-            android:label="@string/title_activity_saved_instructions"
+            android:label="@string/title_activity_instructions"
             android:parentActivityName=".SavedRecipeActivity" >
         </activity>
         <activity
             android:name=".MealPlanActivity"
-            android:label="@string/title_activity_meal_plan"
+            android:label="@string/meal_plan"
             android:parentActivityName=".MainActivity" >
         </activity>
         <activity
             android:name=".MealPickerActivity"
-            android:label="@string/title_activity_meal_picker"
+            android:label="@string/meal_choices"
             android:parentActivityName=".MealPlanActivity" >
         </activity>
     </application>

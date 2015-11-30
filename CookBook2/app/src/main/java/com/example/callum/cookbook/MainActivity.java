@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,7 +40,12 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = new Intent(MainActivity.this, SavedRecipeActivity.class);
                             startActivity(intent);
                         } else if (position == 2) {
+                            Log.d("shopping", "stuff!");
                             Intent intent = new Intent(MainActivity.this, MealPlanActivity.class);
+                            startActivity(intent);
+                        } else if (position == 3) {
+                            Log.d("shopping", "stuff!");
+                            Intent intent = new Intent(MainActivity.this, ShoppingListActivity.class);
                             startActivity(intent);
                         } else {
                             Toast.makeText(getBaseContext(), mainz[position] + ", not implemented...", Toast.LENGTH_SHORT).show();

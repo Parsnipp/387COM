@@ -54,4 +54,6 @@
     <string name="no">No</string>
     <string name="meal_plan">Meal Plan</string>
     <string name="meal_choices">Meal Choices</string>
+    <string name="title_activity_shopping_list">ShoppingListActivity</string>
+    <string name="shopping_list">Shopping List</string>
 </resources>

@@ -1,11 +1,13 @@
 package com.example.callum.cookbook;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -43,5 +45,15 @@ public class SavedRecipeActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SavedRecipeActivity.this, PhotographActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

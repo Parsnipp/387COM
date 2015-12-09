@@ -9,12 +9,11 @@
         <item>Saved Recipes</item>
         <item>Meal Plan</item>
         <item>Shopping List</item>
-        <item>Settings</item>
     </string-array>
     <string-array name="recipe_id">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
+        <item>1324</item>
+        <item>2435</item>
+        <item>3546</item>
     </string-array>
     <string-array name="recipe_name">
         <item>Chilli</item>
@@ -56,4 +55,10 @@
     <string name="meal_choices">Meal Choices</string>
     <string name="title_activity_shopping_list">ShoppingListActivity</string>
     <string name="shopping_list">Shopping List</string>
+    <string name="clear">Clear Meal Plan</string>
+    <string name="title_activity_photograph">PhotographActivity</string>
+    <string name="photograph">Photograph</string>
+    <string name="creater">Create your own Recipe!</string>
+    <string name="OwnRecipe">New Recipe</string>
+    <string name="save">Save</string>
 </resources>

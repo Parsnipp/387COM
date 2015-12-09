@@ -101,7 +101,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public ArrayList<Recipes> showSaved(){
         ArrayList<Recipes> returnable = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String selection = "SELECT * FROM recipeTable";
+        String selection = "SELECT * FROM recipeTable ORDER BY id ASC";
         Cursor recipes = db.rawQuery(selection, null);
         recipes.moveToFirst();
         while (!recipes.isAfterLast()){
@@ -122,6 +122,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             recipes.moveToNext();
         }
         return returnable;
+    }
+
+    public void clearSaved(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("drop table if exists planTable ");
+        db.execSQL("CREATE TABLE IF NOT EXISTS planTable (ID, Name, Ingredients, Directions, Photo, Day, Meal)");
     }
 
     public DatabaseHandler(Context context){

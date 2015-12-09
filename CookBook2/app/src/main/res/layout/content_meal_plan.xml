@@ -237,7 +237,18 @@
                 android:text="@string/add_dinner"
                 android:id="@+id/sunday_dinner"
                 android:background="#fafafa"
-                android:textAlignment="textStart"/>
+                android:textAlignment="textStart"
+                android:layout_marginBottom="50dp"/>
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/clear"
+        android:id="@+id/clear_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="#fafafa"/>
+
 </RelativeLayout>

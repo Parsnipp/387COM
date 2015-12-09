@@ -34,17 +34,15 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         if (position == 0) {
-                            Intent intent = new Intent(MainActivity.this, PhotoListActivity.class);
+                            Intent intent = new Intent(MainActivity.this, RecipeDatabaseActivity.class);
                             startActivity(intent);
                         } else if (position == 1) {
                             Intent intent = new Intent(MainActivity.this, SavedRecipeActivity.class);
                             startActivity(intent);
                         } else if (position == 2) {
-                            Log.d("shopping", "stuff!");
                             Intent intent = new Intent(MainActivity.this, MealPlanActivity.class);
                             startActivity(intent);
                         } else if (position == 3) {
-                            Log.d("shopping", "stuff!");
                             Intent intent = new Intent(MainActivity.this, ShoppingListActivity.class);
                             startActivity(intent);
                         } else {

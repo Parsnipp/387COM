@@ -2,11 +2,7 @@ package com.example.callum.cookbook;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -356,6 +352,18 @@ public class MealPlanActivity extends AppCompatActivity {
                 }
         );
 
-    }
+        Button clear = (Button) findViewById(R.id.clear_button);
+        clear.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                public void  onClick(View v) {
+                        DatabaseHandler db = new DatabaseHandler(MealPlanActivity.this);
+                        db.clearSaved();
+                        Intent intent = new Intent(MealPlanActivity.this, MealPlanActivity.class);
+                        startActivity(intent);
+                    }
+                }
+        );
 
+    }
 }

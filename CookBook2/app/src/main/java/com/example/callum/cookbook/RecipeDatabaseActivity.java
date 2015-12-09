@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class PhotoListActivity extends AppCompatActivity {
+public class RecipeDatabaseActivity extends AppCompatActivity {
 
     public static int[] recipePhotos = {
             R.drawable.chilli,
@@ -27,7 +27,7 @@ public class PhotoListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo_list);
+        setContentView(R.layout.activity_recipe_database);
 
         recipeID = getResources().getStringArray(R.array.recipe_id);
         recipeNames = getResources().getStringArray(R.array.recipe_name);
@@ -42,7 +42,7 @@ public class PhotoListActivity extends AppCompatActivity {
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent intent = new Intent(PhotoListActivity.this, Instructions.class);
+                        Intent intent = new Intent(RecipeDatabaseActivity.this, Instructions.class);
                         String rid = recipes.get(position).getID();
                         String rname = recipes.get(position).getName();
                         String ringredients = recipes.get(position).getIngredients();

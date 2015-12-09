@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.callum.cookbook" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,14 +22,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PhotoListActivity"
+            android:name=".RecipeDatabaseActivity"
             android:label="@string/title_activity_recipes"
             android:parentActivityName=".MainActivity" >
         </activity>
         <activity
             android:name=".Instructions"
             android:label="@string/title_activity_instructions"
-            android:parentActivityName=".PhotoListActivity" >
+            android:parentActivityName=".RecipeDatabaseActivity" >
         </activity>
         <activity
             android:name=".SavedRecipeActivity"
@@ -52,6 +55,11 @@
             android:name=".ShoppingListActivity"
             android:label="@string/shopping_list"
             android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity
+            android:name=".PhotographActivity"
+            android:label="@string/OwnRecipe"
+            android:parentActivityName=".SavedRecipeActivity" >
         </activity>
     </application>
 

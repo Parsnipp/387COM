@@ -1,31 +1,17 @@
 package com.example.callum.cookbook;
 
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Random;
 
 public class PhotographActivity extends AppCompatActivity {
@@ -35,10 +21,7 @@ public class PhotographActivity extends AppCompatActivity {
     EditText directionsText;
     Button saveButton;
     Button imageButton;
-    public static final int MEDIA_TYPE_IMAGE = 1;
-    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
-    private Uri fileUri;
-    private int[] image;
+    ImageView imageView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +33,16 @@ public class PhotographActivity extends AppCompatActivity {
         ingredientsText = (EditText) findViewById(R.id.saveIngredients);
         directionsText = (EditText) findViewById(R.id.saveDirections);
         imageButton = (Button) findViewById(R.id.imageButton);
+        imageView2 = (ImageView) findViewById(R.id.imageView2);
 
         imageButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
-                        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-                        startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+                        if (intent.resolveActivity(getPackageManager()) != null) {
+                            startActivityForResult(intent, 1);
+                        }
                     }
                 }
         );
@@ -93,54 +77,21 @@ public class PhotographActivity extends AppCompatActivity {
                 }
         );
     }
-//
-//    public void getImage(View arg0) {
-//        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
-//        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-//        startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-//    }
-
-    private static Uri getOutputMediaFileUri(int type) {
-        return Uri.fromFile(getOutputMediaFile(type));
-    }
-
-    private static File getOutputMediaFile(int type) {
-        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES), "MyCameraApp");
-        Log.d("xxxx", "line 84");
-
-        if (!mediaStorageDir.exists()) {
-            if (!mediaStorageDir.mkdirs()) {
-                Log.d("MyCameraApp", mediaStorageDir.toString());
-
-                Log.d("MyCameraApp", "failed to create directory");
-                return null;
-            }
-        }
-
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.UK).format(new Date());
-        File mediaFile;
-        if (type == MEDIA_TYPE_IMAGE) {
-            mediaFile = new File(mediaStorageDir.getPath() + File.separator +
-                    "IMG_" + timeStamp + ".jpg");
-        } else {
-            return null;
-        }
-        Log.d("xxxx", "line 108");
-        return mediaFile;
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+        if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
-                // Image captured and saved to fileUri specified in the Intent
-                Toast.makeText(this, "Image saved to:\n" +
-                        data.getExtras(), Toast.LENGTH_LONG).show();
+                Log.d("cameraPlace", "got here");
+                Bundle cameraBundle = data.getExtras();
+                Bitmap cameraImage = (Bitmap) cameraBundle.get("data");
+                imageView2.setImageBitmap(cameraImage);
+
             } else if (resultCode == RESULT_CANCELED) {
+                Log.d("cameraPlace", "erm?");
                 // User cancelled the image capture
             } else {
+                Log.d("cameraPlace", "broke");
                 // Image capture failed, advise user
             }
         }

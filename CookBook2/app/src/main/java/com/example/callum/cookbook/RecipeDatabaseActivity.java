@@ -47,7 +47,7 @@ public class RecipeDatabaseActivity extends AppCompatActivity {
                         String rname = recipes.get(position).getName();
                         String ringredients = recipes.get(position).getIngredients();
                         String rdirections = recipes.get(position).getDirections();
-                        int rphoto =recipes.get(position).getPhoto();
+                        int rphoto = recipes.get(position).getPhoto();
                         intent.putExtra("id", rid);
                         intent.putExtra("name", rname);
                         intent.putExtra("ingredients", ringredients);
